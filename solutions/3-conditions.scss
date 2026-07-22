@@ -2,5 +2,10 @@ $grid-width: 45px;
 $gutter-width: 15px;
 
 // BEGIN (write your solution here)
-
+@function grid-container-width($columns) {
+  @if $columns <= 0 {
+    @return $grid-width;
+  }
+  @return $columns * $grid-width + ($columns - 1) * $gutter-width;
+}
 // END
