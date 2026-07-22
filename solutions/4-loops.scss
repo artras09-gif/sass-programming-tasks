@@ -10,5 +10,17 @@ $theme-colors: (
 );
 
 // BEGIN (write your solution here)
+@mixin colors($theme, $tone: "light") {
+  @each $name, $shades in $theme {
+    $value: string.unquote(map.get($shades, $tone));
 
+    .bg-#{$name} {
+      background: $value;
+    }
+
+    .text-#{$name} {
+      color: $value;
+    }
+  }
+}
 // END
